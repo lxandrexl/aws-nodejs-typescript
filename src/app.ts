@@ -24,7 +24,7 @@ class App {
     }
 
     private initDynamoDB() {
-        if(this.IS_OFFLINE ==- 'true') {
+        if(this.IS_OFFLINE === 'true') {
             this.dynamoDbClient = new AWS.DynamoDB.DocumentClient({
                 region: 'localhost',
                 endpoint: 'http://localhost:8000'
