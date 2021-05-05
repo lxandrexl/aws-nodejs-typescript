@@ -5,10 +5,10 @@ import {PeliculaModule} from "./modules/pelicula/init";
 
 class App {
     public  app           : Express = express();
-    private IS_OFFLINE    : any    = process.env.IS_OFFLINE;
     private dynamoDbClient: AWS.DynamoDB.DocumentClient;
+    private IS_OFFLINE    : any    = process.env.IS_OFFLINE;
 
-    constructor() {
+    constructor(_toTest: boolean = false) {
         this.config();
         this.initDynamoDB();
         this.initModules();

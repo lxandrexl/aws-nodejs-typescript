@@ -28,7 +28,6 @@ provider:
     minimumCompressionSize: 1024
   environment:
     PELICULA_TABLE: ${self:custom.peliculaTableName}
-    SWAPI_BASE_URL: 'https://swapi.py4e.com/api'
   iam:
     role:
       statements:

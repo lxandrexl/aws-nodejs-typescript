@@ -5,7 +5,7 @@ import {PeliculaEsDTO} from '../dto/pelicula_es.dto';
 import App from "../../../app";
 
 export class PeliculaRepository {
-    private baseURL: string   = process.env.SWAPI_BASE_URL;
+    private swapiUrl: string  = 'https://swapi.py4e.com/api';
     private tableName: string = process.env.PELICULA_TABLE;
 
     public async addPeliculaToDb(pelicula: PeliculaEsDTO) {
@@ -24,7 +24,7 @@ export class PeliculaRepository {
     }
 
     public async getPeliculaById(peliculaId: number): Promise<Pelicula> {
-        const result: any        = await fetch(`${this.baseURL}/films/${peliculaId}/`);
+        const result: any        = await fetch(`${this.swapiUrl}/films/${peliculaId}/`);
         const jsonObj: any       = await result.json();
         const pelicula: Pelicula = new Pelicula(jsonObj);
 
@@ -32,7 +32,7 @@ export class PeliculaRepository {
     }
 
     public async getPeliculas(): Promise<Pelicula[]> {
-        const result: any           = await fetch(`${this.baseURL}/films`);
+        const result: any           = await fetch(`${this.swapiUrl}/films`);
         const jsonObj: any          = await result.json();
         const peliculas: Pelicula[] = jsonObj.results.map((pelicula: PeliculaDTO)=> new Pelicula(pelicula));
 

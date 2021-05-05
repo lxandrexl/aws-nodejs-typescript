@@ -13,10 +13,10 @@ export class PeliculaRouteController {
         try {
             const pelicula: PeliculaEsDTO = _req.body;
             const newPelicula             = await this.peliculaBusinessController.createNewPelicula(pelicula);
-            return res.status(200).send(newPelicula);
+            return res.status(200).json(newPelicula);
         } catch (error) {
             console.log("Error creando nueva pelicula.", error);
-            return res.status(400).send({message: "Error creando nueva pelicula: " + error});
+            return res.status(400).json({message: "Error creando nueva pelicula: " + error});
         }
     }
 
@@ -24,18 +24,18 @@ export class PeliculaRouteController {
         const peliculaId: number = _req.params.peliculaid;
         try {
             const pelicula = await this.peliculaBusinessController.getPeliculaById(peliculaId);
-            return res.status(200).send(pelicula);
+            return res.status(200).json(pelicula);
         } catch (error) {
-            return res.status(400).send({message: error});
+            return res.status(400).json({message: error});
         }
     }
 
     public getPeliculas = async (_req: Request, res: Response) => {
         try {
             const peliculas = await this.peliculaBusinessController.getPeliculas();
-            return res.status(200).send(peliculas);
+            return res.status(200).json(peliculas);
         } catch (error) {
-            return res.status(400).send({message: error});
+            return res.status(400).json({message: error});
         }
     }
 }
