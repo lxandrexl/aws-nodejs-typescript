@@ -15,11 +15,8 @@ export class PeliculaRepository {
                 Item: pelicula,
                 ReturnValue: 'ALL_OLD'
             };
-            const res = await App.retrieveDynamoDbClient().put(params).promise();
+            await App.retrieveDynamoDbClient().put(params).promise();
 
-            console.log(res)
-            console.log('LLEGO AQUI 123')
-            
             return 'Pelicula guardada exitosamente.'
         } catch (error) {
             return 'No se pudo guardar la pelicula, debido al error:' + error;

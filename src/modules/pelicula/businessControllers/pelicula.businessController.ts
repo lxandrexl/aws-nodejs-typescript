@@ -10,7 +10,6 @@ export class PeliculaBusinessController {
     }
     public async createNewPelicula(pelicula: PeliculaEsDTO): Promise<string> {
         return this.peliculaRepository.addPeliculaToDb(pelicula);
-        //return pelicula;
     }
 
     public async getPeliculaById(peliculaId: number): Promise<Pelicula> {
