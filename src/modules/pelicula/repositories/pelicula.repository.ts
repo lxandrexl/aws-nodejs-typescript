@@ -13,9 +13,12 @@ export class PeliculaRepository {
             const params = {
                 TableName: this.tableName,
                 Item: pelicula,
-                ReturnValue: 'NONE'
+                ReturnValue: 'ALL_OLD'
             };
-            await App.retrieveDynamoDbClient().put(params).promise();
+            const res = await App.retrieveDynamoDbClient().put(params).promise();
+
+            console.log(res)
+            console.log('LLEGO AQUI 123')
             
             return 'Pelicula guardada exitosamente.'
         } catch (error) {

@@ -8,9 +8,9 @@ export class PeliculaBusinessController {
     constructor(peliculaRepository: PeliculaRepository = new PeliculaRepository()) {
         this.peliculaRepository = peliculaRepository;
     }
-    public async createNewPelicula(pelicula: PeliculaEsDTO): Promise<Pelicula> {
-        this.peliculaRepository.addPeliculaToDb(pelicula);
-        return pelicula;
+    public async createNewPelicula(pelicula: PeliculaEsDTO): Promise<string> {
+        return this.peliculaRepository.addPeliculaToDb(pelicula);
+        //return pelicula;
     }
 
     public async getPeliculaById(peliculaId: number): Promise<Pelicula> {
