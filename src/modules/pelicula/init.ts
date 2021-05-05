@@ -5,7 +5,7 @@ import {Routes} from "./routes";
 export class PeliculaModule {
     public routes: Routes;
 
-    constructor(app: Express, ) {
+    constructor(app: Express) {
         this.routes = new Routes(app, new PeliculaRouteController());
     }
 }

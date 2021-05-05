@@ -8,7 +8,7 @@ class App {
     private dynamoDbClient: AWS.DynamoDB.DocumentClient;
     private IS_OFFLINE    : any    = process.env.IS_OFFLINE;
 
-    constructor(_toTest: boolean = false) {
+    constructor() {
         this.config();
         this.initDynamoDB();
         this.initModules();
